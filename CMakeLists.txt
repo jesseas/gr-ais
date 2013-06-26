@@ -34,6 +34,14 @@ set(CMAKE_BUILD_TYPE ${CMAKE_BUILD_TYPE} CACHE STRING "")
 
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/Modules)
 
+  IF(APPLE)
+    IF (CMAKE_SIZEOF_VOID_P MATCHES "8")
+      IF (CMAKE_OSX_64)
+        SET(ARCH "x86_64")
+      ENDIF (CMAKE_OSX_64)
+    ENDIF (CMAKE_SIZEOF_VOID_P MATCHES "8")
+  ENDIF()
+
 ########################################################################
 # Compiler specific setup
 ########################################################################
